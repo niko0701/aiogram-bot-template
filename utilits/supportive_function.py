@@ -60,7 +60,6 @@ async def edit_or_answer_func(
 
 
 async def try_edit(
-        cls,
         message: types.message.Message | types.callback_query.CallbackQuery,
         text: str | None = None,
         reply_markup: types.InlineKeyboardMarkup | types.ReplyKeyboardMarkup | None = None,
@@ -87,7 +86,7 @@ async def try_edit(
     if wait:
         await asyncio.sleep(wait)
     try:
-        message_id = await cls.edit_or_answer_func(
+        message_id = await edit_or_answer_func(
             message=message,
             text=text,
             reply_markup=reply_markup,
