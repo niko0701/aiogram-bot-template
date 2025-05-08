@@ -16,5 +16,5 @@ class AdminFilter(Filter):
             return False
         if self.base_admins_only:
             return str(message.from_user.id) in config.ADMINS
-        return await Admin.filter(tg_id=message.from_user.id).exists()
+        return await Admin.filter(tg_id=message.from_user.id).exists() or str(message.from_user.id) in config.ADMINS
 

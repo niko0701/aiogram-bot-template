@@ -33,6 +33,7 @@ dp = Dispatcher()
 
 database_models = [
     "database.models.user",
+    "database.models.admin",
 ]
 
 TORTOISE_ORM = {

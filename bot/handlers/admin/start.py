@@ -19,5 +19,5 @@ async def admin_start(message: Message | CallbackQuery):
 
 @router.message(Command("add_admin"), AdminFilter(True))
 async def add_admin(message: Message, command: CommandObject):
-    print(command.args)
+    tg_id = command.args
     # admin = await Admin.filter()
