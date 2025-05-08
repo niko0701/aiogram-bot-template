@@ -22,7 +22,7 @@ services:
     env_file:
       - .env
     networks:
-      - bot
+      - aiogram_bot
 
   redis:
     restart: always
@@ -31,7 +31,7 @@ services:
     volumes:
       - aiogram_bot_redis_data:/var/lib/fastapi/data
     networks:
-      - bot
+      - aiogram_bot
 
 volumes:
   aiogram_bot_postgres_data:

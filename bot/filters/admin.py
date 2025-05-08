@@ -1,13 +1,20 @@
 from aiogram.enums import ChatType
 from aiogram.filters import Filter
 from aiogram.types import CallbackQuery, Message
+from database.models.admin import Admin
 from config import config
 
 class AdminFilter(Filter):
     """
     Filter made to restrict other users from using admin commands
     """
+    def __init__(self, base_admins_only: bool = False):
+        self.base_admins_only = base_admins_only
+
     async def __call__(self, message: Message) -> bool:
         if message.chat.type != ChatType.PRIVATE:
             return False
-        return str(message.from_user.id) in config.ADMINS
+        if self.base_admins_only:
+            return str(message.from_user.id) in config.ADMINS
+        return await Admin.filter(tg_id=message.from_user.id).exists()
+

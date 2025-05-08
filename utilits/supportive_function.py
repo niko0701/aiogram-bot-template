@@ -99,7 +99,7 @@ async def try_edit(
             await asyncio.sleep(sleep_seconds)
             if type_of_update == types.callback_query.CallbackQuery:
                 await message.answer(f"Please wait {sleep_seconds} seconds, too many requests")
-            message_id = await cls.edit_or_answer_func(
+            message_id = await edit_or_answer_func(
                 message=message,
                 text=text,
                 reply_markup=reply_markup,
@@ -108,3 +108,4 @@ async def try_edit(
             )
 
     return message_id
+
