@@ -33,6 +33,9 @@ async def add_admin(message: Message, command: CommandObject):
 
 @router.message(Command("admin_list"), AdminFilter(True))
 async def admin_list(message: Message):
+    """
+    Function for getting a list of admins
+    """
     admins = await Admin.all()
     if len(admins) == 0:
         await message.answer(text=AdminText.ADMIN_LIST_EMPTY)
