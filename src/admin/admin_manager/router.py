@@ -49,7 +49,7 @@ async def admin_list(message: Message):
 @router.message(Command("remove_admin"), AdminFilter(True))
 async def remove_admin(message: Message, command: CommandObject):
     """
-    Function for removing admins (Available only for base admins whose ids are in config.ADMINS)
+    Function for removing admins (Available only for base admins whose ids are in ADMINS env variable)
     """
     tg_id: str = command.args
     if not tg_id.isdigit():

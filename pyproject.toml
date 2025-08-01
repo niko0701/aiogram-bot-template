@@ -12,6 +12,7 @@ dependencies = [
     "tortoise-orm (>=0.25.0,<0.26.0)",
     "python-dotenv (>=1.1.0,<2.0.0)",
     "asyncpg (>=0.30.0,<0.31.0)",
+    "ruff (>=0.12.7,<0.13.0)",
 ]
 
 
