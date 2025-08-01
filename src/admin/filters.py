@@ -4,10 +4,12 @@ from aiogram.types import Message
 from src.admin.models import Admin
 from config import config
 
+
 class AdminFilter(Filter):
     """
     Filter made to restrict other users from using admin commands
     """
+
     def __init__(self, base_admins_only: bool = False):
         self.base_admins_only = base_admins_only
 
@@ -16,5 +18,7 @@ class AdminFilter(Filter):
             return False
         if self.base_admins_only:
             return str(message.from_user.id) in config.ADMINS
-        return await Admin.filter(tg_id=message.from_user.id).exists() or str(message.from_user.id) in config.ADMINS
-
+        return (
+            await Admin.filter(tg_id=message.from_user.id).exists()
+            or str(message.from_user.id) in config.ADMINS
+        )

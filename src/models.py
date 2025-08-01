@@ -1,6 +1,7 @@
 """
 Base models includes common fields for others models, you can add additional fields if it is necessary
 """
+
 from tortoise.models import Model
 from tortoise import fields
 

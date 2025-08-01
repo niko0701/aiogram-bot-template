@@ -2,10 +2,12 @@ from aiogram.enums import ChatType
 from aiogram.filters import Filter
 from aiogram.types import CallbackQuery, Message
 
+
 class ChatTypeFilter(Filter):
     """
     Filter for checking chat type
     """
+
     async def __init__(self, allowed_types: list[ChatType]):
         self.allowed_types = allowed_types
 
@@ -22,6 +24,7 @@ class ChatIdFilter(Filter):
     """
     Filter by chat id
     """
+
     async def __init__(self, chat_ids: list[int]):
         self.chat_ids = chat_ids
 

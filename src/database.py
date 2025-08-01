@@ -18,15 +18,10 @@ TORTOISE_ORM = {
                 "password": config.POSTGRES_PASSWORD,
                 "port": config.POSTGRES_PORT,
                 "user": config.POSTGRES_USER,
-            }
+            },
         }
     },
-    "apps": {
-        "models": {
-            "models": database_models,
-            "default_connection": "default"
-        }
-    }
+    "apps": {"models": {"models": database_models, "default_connection": "default"}},
 }
 
 
@@ -34,5 +29,5 @@ async def init_database():
     """
     Function for initializing database and creating tables mentioned in database_models
     """
-    await Tortoise.init(config=TORTOISE_ORM)   
+    await Tortoise.init(config=TORTOISE_ORM)
     await Tortoise.generate_schemas()

@@ -4,7 +4,4 @@ from src.admin.admin_manager.router import router as manager
 
 router = Router(name="Admin Router")
 
-router.include_routers(
-    panel,
-    manager
-)
+router.include_routers(panel, manager)

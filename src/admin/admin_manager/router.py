@@ -30,7 +30,6 @@ async def add_admin(message: Message, command: CommandObject):
     await message.answer(text="Admin added")
 
 
-
 @router.message(Command("admin_list"), AdminFilter(True))
 async def admin_list(message: Message):
     """
@@ -62,5 +61,3 @@ async def remove_admin(message: Message, command: CommandObject):
         return
     await admin.delete()
     await message.answer(text=AdminText.ADMIN_REMOVED)
-
-

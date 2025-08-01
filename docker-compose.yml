@@ -7,7 +7,6 @@ services:
     container_name: aiogram_bot
     depends_on:
       - postgres
-      - redis
     env_file:
       - .env
     networks:
@@ -24,18 +23,8 @@ services:
     networks:
       - aiogram_bot
 
-  redis:
-    restart: always
-    image: redis:6
-    container_name: aiogram_bot_redis
-    volumes:
-      - aiogram_bot_redis_data:/var/lib/fastapi/data
-    networks:
-      - aiogram_bot
-
 volumes:
   aiogram_bot_postgres_data:
-  aiogram_bot_redis_data:
 
 networks:
   aiogram_bot:
