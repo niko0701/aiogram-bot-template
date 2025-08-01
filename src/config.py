@@ -1,6 +1,5 @@
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
-from dotenv import load_dotenv
 from os import getenv
 from aiogram import Bot, Dispatcher
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -32,7 +31,7 @@ config = Config()
 bot = Bot(
     token=config.BOT_TOKEN,
     default=DefaultBotProperties(
-        parse_mode=ParseMode.MARKDOWN, link_preview_is_disabled=True
+        parse_mode=ParseMode.HTML, link_preview_is_disabled=True
     ),
 )
 

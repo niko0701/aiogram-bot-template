@@ -1,7 +1,7 @@
 import asyncio
 import logging
 import sys
-from config import bot, dp
+from .config import bot, dp
 from src.database import init_database
 from src.admin.router import router as admin
 

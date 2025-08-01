@@ -4,8 +4,8 @@ from src.config import config
 
 # Paths to models
 database_models = [
-    "database.models.user",
-    "database.models.admin",
+    "src.user.models",
+    "src.admin.models",
 ]
 
 TORTOISE_ORM = {

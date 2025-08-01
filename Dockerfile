@@ -10,4 +10,4 @@ run poetry install --no-root && rm -rf $POETRY_CACHE_DIR
 
 copy . /app/
 
-cmd ["poetry", "run", "python", "src/main.py"]
+CMD ["poetry", "run", "python", "-m", "src.main"]

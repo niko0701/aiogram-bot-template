@@ -2,7 +2,7 @@ from aiogram.enums import ChatType
 from aiogram.filters import Filter
 from aiogram.types import Message
 from src.admin.models import Admin
-from config import config
+from src.config import config
 
 
 class AdminFilter(Filter):

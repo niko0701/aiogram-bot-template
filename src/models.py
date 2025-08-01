@@ -15,3 +15,6 @@ class Base(Model):
     # Magic method for string representation, you can change it and at using "print()" method chosen fields will be represented
     def __str__(self):
         return str(self.id)
+
+    class Meta:
+        abstract = True
