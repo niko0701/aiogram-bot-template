@@ -63,3 +63,4 @@ async def remove_admin(message: Message, command: CommandObject):
     await admin.delete()
     await message.answer(text=AdminText.ADMIN_REMOVED)
 
+
