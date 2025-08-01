@@ -2,9 +2,9 @@ from aiogram import Router
 from aiogram.filters import Command
 from aiogram.types import CallbackQuery, Message
 
-from bot.filters.admin import AdminFilter
-from bot.text.admin import AdminText
-from utilits.supportive_function import try_edit
+from src.admin.filters import AdminFilter
+from src.admin.text import AdminText
+from src.utils.telegram_message import try_edit
 
 
 router = Router(name="Admin Start")

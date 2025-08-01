@@ -31,28 +31,3 @@ bot = Bot(
 
 dp = Dispatcher()
 
-database_models = [
-    "database.models.user",
-    "database.models.admin",
-]
-
-TORTOISE_ORM = {
-    "connections": {
-        "default": {
-            "engine": "tortoise.backends.asyncpg",
-            "credentials": {
-                "database": config.POSTGRES_DB,
-                "host": config.POSTGRES_HOST,
-                "password": config.POSTGRES_PASSWORD,
-                "port": config.POSTGRES_PORT,
-                "user": config.POSTGRES_USER,
-            }
-        }
-    },
-    "apps": {
-        "models": {
-            "models": database_models,
-            "default_connection": "default"
-        }
-    }
-}

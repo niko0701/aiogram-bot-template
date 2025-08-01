@@ -1,7 +1,7 @@
 """
 Basic model for storing most common data about telegram users
 """
-from database.models.base import Base
+from src.models import Base
 from tortoise import fields
 
 

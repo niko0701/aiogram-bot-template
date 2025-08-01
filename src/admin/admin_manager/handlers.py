@@ -2,10 +2,10 @@ from aiogram import Router
 from aiogram.filters import Command, CommandObject
 from aiogram.types import Message
 
-from bot.filters.admin import AdminFilter
-from bot.text.admin import AdminText
-from bot.text.base import BaseText
-from database.models.admin import Admin
+from src.admin.filters import AdminFilter
+from src.admin.text import AdminText
+from src.text import BaseText
+from src.admin.models import Admin
 
 
 router = Router(name="Admin Manager")

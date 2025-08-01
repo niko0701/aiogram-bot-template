@@ -2,8 +2,7 @@ import asyncio
 import logging
 import sys
 from config import bot, dp
-from database.connection import init_database
-from bot.handlers import router
+from src.database import init_database
 
 async def on_startup():
     await init_database()

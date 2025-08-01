@@ -1,7 +1,7 @@
 from aiogram.enums import ChatType
 from aiogram.filters import Filter
-from aiogram.types import CallbackQuery, Message
-from database.models.admin import Admin
+from aiogram.types import Message
+from src.admin.models import Admin
 from config import config
 
 class AdminFilter(Filter):
