@@ -1,3 +1,4 @@
+import asyncio
 from aiogram import types
 from aiogram.enums import ContentType
 from aiogram.exceptions import TelegramRetryAfter
