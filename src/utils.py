@@ -65,7 +65,19 @@ async def try_edit(
     continue_on_exception: bool = True,
     wait: int | float | None = None,
 ) -> int | None:
-    """Пытается редактировать сообщение, при неудаче отвечает новым."""
+    """
+    Try to edit message, if it fails, try to answer, usefull for handlers which works with both message and callback
+
+    params:
+        message: Message or CallbackQuery
+        text: can be None only if you send photo
+        reply_markup: InlineKeyboardMarkup or ReplyKeyboardMarkup
+        only_answer: If True, answers anyway
+        continue_on_exception: If True, continue on exception related to too many requests error, waiting until sending will be allowed
+        wait:
+    return:
+        message_id - Id of sent message, you can you use it later
+    """
     if wait:
         await asyncio.sleep(wait)
 
