@@ -1,11 +1,10 @@
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
-from os import getenv
 from aiogram import Bot, Dispatcher
 from pydantic_settings import BaseSettings, SettingsConfigDict
 import pathlib
 
-BASE_DIR = pathlib.Path(__file__).parent.parent.parent.resolve()
+BASE_DIR = pathlib.Path(__file__).parent.parent.resolve()
 
 
 class Config(BaseSettings):
@@ -13,16 +12,16 @@ class Config(BaseSettings):
         env_file=BASE_DIR / ".env", env_file_encoding="utf-8", extra="ignore"
     )
     # Telegram Bot Token
-    BOT_TOKEN: str = str(getenv("BOT_TOKEN"))
+    BOT_TOKEN: str
     # Telegram ids of admins as string, need for validation and access to admin functions
-    ADMINS: str = str(getenv("ADMINS"))
+    ADMINS: str
 
     # Database data for postgres
-    POSTGRES_HOST: str = str(getenv("POSTGRES_HOST"))
-    POSTGRES_PORT: int = int(str(getenv("POSTGRES_PORT")))
-    POSTGRES_DB: str = str(getenv("POSTGRES_DB"))
-    POSTGRES_USER: str = str(getenv("POSTGRES_USER"))
-    POSTGRES_PASSWORD: str = str(getenv("POSTGRES_PASSWORD"))
+    POSTGRES_HOST: str
+    POSTGRES_PORT: int
+    POSTGRES_DB: str
+    POSTGRES_USER: str
+    POSTGRES_PASSWORD: str
 
 
 config = Config()
