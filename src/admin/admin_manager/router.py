@@ -1,4 +1,5 @@
 from aiogram import Router
+from aiogram.enums import ParseMode
 from aiogram.filters import Command, CommandObject
 from aiogram.types import Message
 
@@ -16,6 +17,8 @@ async def add_admin(message: Message, command: CommandObject):
     """
     Function for adding admins (Available only for base admins whose ids are in config.ADMINS)
     """
+    if not command.args:
+        return
     tg_id: str = command.args
     if not tg_id.isdigit():
         await message.answer(text=BaseText.NOT_ISDIGIT)
@@ -42,7 +45,7 @@ async def admin_list(message: Message):
     text = "List of added admins:\n"
     for admin in admins:
         text += f"[{admin.tg_id}](https://t.me/user?id={admin.tg_id})\n"
-    await message.answer(text=text)
+    await message.answer(text=text, parse_mode=ParseMode.MARKDOWN)
 
 
 @router.message(Command("remove_admin"), AdminFilter(True))
@@ -50,6 +53,8 @@ async def remove_admin(message: Message, command: CommandObject):
     """
     Function for removing admins (Available only for base admins whose ids are in ADMINS env variable)
     """
+    if not command.args:
+        return
     tg_id: str = command.args
     if not tg_id.isdigit():
         await message.answer(text=BaseText.NOT_ISDIGIT)
