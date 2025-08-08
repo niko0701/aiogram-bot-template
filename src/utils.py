@@ -66,7 +66,8 @@ async def try_edit(
     wait: int | float | None = None,
 ) -> int | None:
     """
-    Try to edit message, if it fails, try to answer, usefull for handlers which works with both message and callback
+    Try to edit message, if it fails, tries to answer, usefull for handlers which works with both messages and callbacks.
+    In case error of too many requests raises, waits and then tries again
 
     params:
         message: Message or CallbackQuery
