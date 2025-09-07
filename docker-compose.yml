@@ -4,28 +4,26 @@ services:
     build:
       context: .      # Build from current directory
       dockerfile: Dockerfile  # Use specified Dockerfile
-    container_name: ${PROJECT_NAME}_bot  # Fixed container name
     depends_on:       # Requires postgres to start first
       - postgres
     env_file:         # Environment variables
       - .env
     networks:         # Connect to dedicated network
-      - ${PROJECT_NAME}
+      - aiogram_bot
 
   postgres:
     restart: always   # Auto-restart on failure  
     image: postgres:13  # Official PostgreSQL 13 image
-    container_name: ${PROJECT_NAME}_postgres
     volumes:          # Persistent data storage
-      - ${PROJECT_NAME}_postgres_data:/var/lib/postgresql/data
+      - aiogram_bot_postgres_data:/var/lib/postgresql/data
     env_file:         # DB config via environment
       - .env
     networks:
-      - ${PROJECT_NAME}
+      - aiogram_bot
 
 volumes:
-  ${PROJECT_NAME}_postgres_data:  # Named volume for database persistence
+  aiogram_bot_postgres_data:  # Named volume for database persistence
 
 networks:
-  ${PROJECT_NAME}:
+  aiogram_bot:
     driver: bridge  # Internal network for service communication

@@ -4,7 +4,7 @@ from aiogram.types import CallbackQuery, Message
 
 from src.admin.callbacks import AdminCallback
 from src.admin.filters import AdminFilter
-from src.admin.text import AdminText
+from src.admin.text import Text
 from src.utils import try_edit
 
 
@@ -15,5 +15,5 @@ router = Router(name="Admin Start")
 @router.callback_query(AdminCallback.filter(F.data == "admin"))
 @router.message(Command("admin"), AdminFilter())
 async def admin_start(message: Message | CallbackQuery):
-    text = AdminText.START
+    text = Text.START
     await try_edit(message=message, text=text)

@@ -4,8 +4,7 @@ from aiogram.filters import Command, CommandObject
 from aiogram.types import Message
 
 from src.admin.filters import AdminFilter
-from src.admin.text import AdminText
-from src.text import BaseText
+from .text import Text
 from src.admin.models import Admin
 
 
@@ -19,14 +18,10 @@ async def add_admin(message: Message, command: CommandObject):
     """
     if not command.args:
         return
-    tg_id: str = command.args
-    if not tg_id.isdigit():
-        await message.answer(text=BaseText.NOT_ISDIGIT)
-        return
-    tg_id: int = int(tg_id)
+    tg_id = command.args
     admin: Admin | None = await Admin.filter(tg_id=tg_id).first()
     if admin:
-        await message.answer(text=AdminText.ADMIN_ALREADY_EXISTS)
+        await message.answer(text=Text.ADMIN_ALREADY_EXISTS)
         return
     admin = Admin(tg_id=tg_id)
     await admin.save()
@@ -40,7 +35,7 @@ async def admin_list(message: Message):
     """
     admins = await Admin.all()
     if len(admins) == 0:
-        await message.answer(text=AdminText.ADMIN_LIST_EMPTY)
+        await message.answer(text=Text.ADMIN_LIST_EMPTY)
         return
     text = "List of added admins:\n"
     for admin in admins:
@@ -55,14 +50,10 @@ async def remove_admin(message: Message, command: CommandObject):
     """
     if not command.args:
         return
-    tg_id: str = command.args
-    if not tg_id.isdigit():
-        await message.answer(text=BaseText.NOT_ISDIGIT)
-        return
-    tg_id: int = int(tg_id)
+    tg_id = command.args
     admin: Admin | None = await Admin.filter(tg_id=tg_id).first()
     if not admin:
-        await message.answer(text=AdminText.ADMIN_NOT_EXISTS)
+        await message.answer(text=Text.ADMIN_NOT_EXISTS)
         return
     await admin.delete()
-    await message.answer(text=AdminText.ADMIN_REMOVED)
+    await message.answer(text=Text.ADMIN_REMOVED)
