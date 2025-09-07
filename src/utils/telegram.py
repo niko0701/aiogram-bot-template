@@ -1,5 +1,5 @@
 from aiogram.types import InlineKeyboardMarkup, Message, CallbackQuery
-from aiogram.exceptions import TelegramRetryAfter
+from aiogram.exceptions import TelegramBadRequest
 
 
 async def try_edit(
@@ -20,6 +20,6 @@ async def try_edit(
     try:
         await message.edit_text(text=text, reply_markup=reply_markup)
         return message.message_id
-    except TelegramRetryAfter:
+    except TelegramBadRequest:
         await message.delete()
         return (await message.answer(text=text, reply_markup=reply_markup)).message_id
