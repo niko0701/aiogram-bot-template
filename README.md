@@ -7,7 +7,7 @@ This is a modular Telegram bot template built with Python, using the Aiogram fra
 - **Dependencies**: Managed via [Poetry](https://python-poetry.org/) (`pyproject.toml`, `poetry.lock`).
 - **Containerization**: Uses `docker-compose.yml` and `Dockerfile` for easy deployment.
 - **Logging**: Module-specific logging with colored console output and file storage (`utils/logger.py`).
-- **Formatting**: Consistent code formatting with `ruff`.
+- **Formatting**: Consistent code formatting with [Ruff](https://github.com/astral-sh/ruff).
 - **ORM**: [Tortoise ORM](https://tortoise.github.io/) for database interactions (`models.py`).
 
 ## Structure
