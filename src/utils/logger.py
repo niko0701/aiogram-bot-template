@@ -1,6 +1,7 @@
 import logging
 import sys
 from pathlib import Path
+from config import BASE_DIR
 
 class ColoredFormatter(logging.Formatter):
     """Colored formatter for console output"""
@@ -26,7 +27,7 @@ def setup_logger(
     level: int = logging.INFO,
     log_to_file: bool = True,
     log_to_console: bool = True,
-    logs_dir: str = "logs"
+    logs_dir: str = str(BASE_DIR / "logs")
 ) -> logging.Logger:
     """
     Creates configured logger for module
@@ -53,12 +54,6 @@ def setup_logger(
     # Create logs directory if it doesn't exist
     if log_to_file:
         Path(logs_dir).mkdir(exist_ok=True)
-    
-    # Formats for different output types
-    console_format = logging.Formatter(
-        fmt='%(asctime)s | %(name)s | %(levelname)s | %(message)s',
-        datefmt='%H:%M:%S'
-    )
     
     file_format = logging.Formatter(
         fmt='%(asctime)s | %(name)s | %(levelname)s | %(funcName)s:%(lineno)d | %(message)s',
