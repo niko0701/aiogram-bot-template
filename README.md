@@ -58,10 +58,3 @@ poetry install --no-root
 ```bash
 docker-compose up --build
 ```
-## Key Features
-- **Modular Logging**: Each module has its own logger (e.g., `bot.admin`, `bot.user`) with configurable file and console output.
-- **Database**: Persistent storage with PostgreSQL via Tortoise ORM.
-- **Scalability**: Modular design allows easy extension of features across modules.
-
-## Contributing
-Feel free to enhance modules or add new ones. Ensure logging is module-specific and follows the `utils/logger.py` pattern.
