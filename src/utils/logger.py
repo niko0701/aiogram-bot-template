@@ -1,7 +1,7 @@
 import logging
 import sys
 from pathlib import Path
-from config import BASE_DIR
+from src.config import BASE_DIR
 
 
 class ColoredFormatter(logging.Formatter):

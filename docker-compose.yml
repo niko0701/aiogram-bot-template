@@ -4,6 +4,8 @@ services:
     build:
       context: .      # Build from current directory
       dockerfile: Dockerfile  # Use specified Dockerfile
+    volumes:          # Persistent data storage
+      - ./logs:/app/logs
     depends_on:       # Requires postgres to start first
       - postgres
     env_file:         # Environment variables
