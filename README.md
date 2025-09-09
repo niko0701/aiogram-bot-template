@@ -7,6 +7,7 @@ This is a modular Telegram bot template built with Python, using the Aiogram fra
 - **Dependencies**: Managed via Poetry (`pyproject.toml`, `poetry.lock`).
 - **Containerization**: Uses `docker-compose.yml` and `Dockerfile` for easy deployment.
 - **Logging**: Module-specific logging with colored console output and file storage (`utils/logger.py`).
+- **Formatting**: Consistent code formatting with `ruff`.
 
 ## Structure
 ```
@@ -48,10 +49,15 @@ This is a modular Telegram bot template built with Python, using the Aiogram fra
         └── telegram.py
 ```
 ## Setup
-1. Install dependencies: `poetry install --no-root`.
+1. Install dependencies: 
+```bash
+poetry install --no-root
+```
 2. Copy `.env.sample` to `.env` and update with your `BOT_TOKEN`, `ADMINS`, and PostgreSQL credentials.
-3. Build and run with Docker: `docker-compose up --build`.
-
+3. Build and run with Docker:
+```bash
+docker-compose up --build
+```
 ## Key Features
 - **Modular Logging**: Each module has its own logger (e.g., `bot.admin`, `bot.user`) with configurable file and console output.
 - **Database**: Persistent storage with PostgreSQL via Tortoise ORM.
