@@ -15,6 +15,7 @@ magic-filter==1.0.12
 multidict==6.4.3
 propcache==0.3.1
 pydantic==2.11.3
+pydantic-settings==2.10.1
 pydantic_core==2.33.1
 pypika-tortoise==0.5.0
 python-dotenv==1.1.0
