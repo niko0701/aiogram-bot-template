@@ -10,6 +10,7 @@ This is a modular Telegram bot template built with Python, using the Aiogram fra
 
 ## Structure
 ```
+.
 ├── docker-compose.yml # Defines services (bot, PostgreSQL) and networking.
 ├── Dockerfile
 ├── .env.sample # Sample environment variables for configuration.
