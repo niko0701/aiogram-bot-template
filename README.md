@@ -9,6 +9,7 @@ This is a modular Telegram bot template built with Python, using the Aiogram fra
 - **Logging**: Module-specific logging with colored console output and file storage (`utils/logger.py`).
 
 ## Structure
+```
 ├── docker-compose.yml # Defines services (bot, PostgreSQL) and networking.
 ├── Dockerfile
 ├── .env.sample # Sample environment variables for configuration.
@@ -44,7 +45,7 @@ This is a modular Telegram bot template built with Python, using the Aiogram fra
         ├── __init__.py
         ├── logger.py
         └── telegram.py
-
+```
 ## Setup
 1. Install dependencies: `poetry install --no-root`.
 2. Copy `.env.sample` to `.env` and update with your `BOT_TOKEN`, `ADMINS`, and PostgreSQL credentials.
