@@ -18,12 +18,14 @@ class ColoredFormatter(logging.Formatter):
     RESET = "\033[0m"
 
     def format(self, record):
-        # Add color to log level
-        if record.levelname in self.COLORS:
-            record.levelname = (
-                f"{self.COLORS[record.levelname]}{record.levelname}{self.RESET}"
-            )
-        return super().format(record)
+        # Create a copy of the record to avoid modifying the original
+        record_copy = logging.makeLogRecord(record.__dict__)
+
+        # Add color only to the copy
+        if record_copy.levelname in self.COLORS:
+            record_copy.levelname = f"{self.COLORS[record_copy.levelname]}{record_copy.levelname}{self.RESET}"
+
+        return super().format(record_copy)
 
 
 def setup_logger(
