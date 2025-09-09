@@ -9,41 +9,41 @@ This is a modular Telegram bot template built with Python, using the Aiogram fra
 - **Logging**: Module-specific logging with colored console output and file storage (`utils/logger.py`).
 
 ## Structure
-- ├── docker-compose.yml # Defines services (bot, PostgreSQL) and networking.
-- ├── Dockerfile
-- ├── .env.sample # Sample environment variables for configuration.
-- ├── logs
-- ├── poetry.lock
-- ├── pyproject.toml
-- ├── README.md
-- ├── requirements.txt
-- └── src # Core application code.
--     ├── admin # Admin-specific features (e.g., `admin_manager`, `keyboards`, `router`) 
--     │   ├── admin_manager
--     │   │   ├── __init__.py
--     │   │   ├── keyboards.py
--     │   │   └── router.py
--     │   ├── text.py
--     │   └── callbacks.py
--     ├── filters.py
--     ├── __init__.py
--     ├── models.py
--     ├── router.py
--     ├── states.py
--     ├── text.py
--     ├── config.py
--     ├── database.py
--     ├── filters.py
--     ├── main.py # Entry point for the bot.
--     ├── models.py # Base model with Tortoise ORM for database interactions.
--     ├── text.py
--     ├── user # User-related functionality.
--     │   ├── __init__.py
--     │   └── models.py
--     └── utils # Utility functions (e.g., `logger`, `telegram`)
--         ├── __init__.py
--         ├── logger.py
--         └── telegram.py
+├── docker-compose.yml # Defines services (bot, PostgreSQL) and networking.
+├── Dockerfile
+├── .env.sample # Sample environment variables for configuration.
+├── logs
+├── poetry.lock
+├── pyproject.toml
+├── README.md
+├── requirements.txt
+└── src # Core application code.
+    ├── admin # Admin-specific features (e.g., `admin_manager`, `keyboards`, `router`) 
+    │   ├── admin_manager
+    │   │   ├── __init__.py
+    │   │   ├── keyboards.py
+    │   │   └── router.py
+    │   ├── text.py
+    │   └── callbacks.py
+    ├── filters.py
+    ├── __init__.py
+    ├── models.py
+    ├── router.py
+    ├── states.py
+    ├── text.py
+    ├── config.py
+    ├── database.py
+    ├── filters.py
+    ├── main.py # Entry point for the bot.
+    ├── models.py # Base model with Tortoise ORM for database interactions.
+    ├── text.py
+    ├── user # User-related functionality.
+    │   ├── __init__.py
+    │   └── models.py
+    └── utils # Utility functions (e.g., `logger`, `telegram`)
+        ├── __init__.py
+        ├── logger.py
+        └── telegram.py
 
 ## Setup
 1. Install dependencies: `poetry install --no-root`.
