@@ -49,7 +49,7 @@ This is a modular Telegram bot template built with Python, using the Aiogram fra
         └── telegram.py
 ```
 ## Setup
-1. Install dependencies: 
+1. Install dependencies via poetry: 
 ```bash
 poetry install --no-root
 ```
