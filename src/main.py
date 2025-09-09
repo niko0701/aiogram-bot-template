@@ -1,6 +1,6 @@
 import asyncio
 import logging
-from .config import bot, dp
+from src.config import bot, dp
 from src.database import init_database
 from src.admin.router import router as admin
 from src.utils.logger import setup_root_logger, setup_logger
