@@ -59,7 +59,7 @@ rm -rf aiogram-bot-template/.git # Remove the .git directory
 ```bash
 poetry install --no-root
 ```
-or 
+or pip:
 ```bash
 pip install -r requirements.txt
 ```
