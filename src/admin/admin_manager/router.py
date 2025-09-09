@@ -6,6 +6,7 @@ from aiogram.types import Message
 from src.admin.filters import AdminFilter
 from .text import Text
 from src.admin.models import Admin
+from src.admin import logger
 
 
 router = Router(name="Admin Manager")
@@ -25,6 +26,7 @@ async def add_admin(message: Message, command: CommandObject):
         return
     admin = Admin(tg_id=tg_id)
     await admin.save()
+    logger.info(f"Admin added: {tg_id}")
     await message.answer(text="Admin added")
 
 
@@ -33,6 +35,7 @@ async def admin_list(message: Message):
     """
     Function for getting a list of admins
     """
+    logger.info(f"Admin list requested by {message.from_user.id}")
     admins = await Admin.all()
     if len(admins) == 0:
         await message.answer(text=Text.ADMIN_LIST_EMPTY)
@@ -56,4 +59,5 @@ async def remove_admin(message: Message, command: CommandObject):
         await message.answer(text=Text.ADMIN_NOT_EXISTS)
         return
     await admin.delete()
+    logger.info(f"Admin removed: {tg_id}")
     await message.answer(text=Text.ADMIN_REMOVED)
