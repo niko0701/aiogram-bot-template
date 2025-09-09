@@ -49,12 +49,17 @@ This is a modular Telegram bot template built with Python, using the Aiogram fra
         └── telegram.py
 ```
 ## Setup
+1. Download repository and prepare it for usage:
+```bash
+git clone https://github.com/niko0701/aiogram-bot-template.git # Clone the repository
+rm -rf aiogram-bot-template/.git # Remove the .git directory
+```
 1. Install dependencies via poetry: 
 ```bash
 poetry install --no-root
 ```
-2. Copy `.env.sample` to `.env` and update with your `BOT_TOKEN`, `ADMINS`, and PostgreSQL credentials.
-3. Build and run with Docker:
+1. Copy `.env.sample` to `.env` and update with your `BOT_TOKEN`, `ADMINS`, and PostgreSQL credentials.
+1. Build and run with Docker:
 ```bash
 docker-compose up --build
 ```
