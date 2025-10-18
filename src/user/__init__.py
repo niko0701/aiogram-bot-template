@@ -1,3 +1,1 @@
-from src.utils.logger import setup_logger
-
-logger = setup_logger("user")
+from .models import User as User

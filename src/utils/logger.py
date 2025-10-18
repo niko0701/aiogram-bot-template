@@ -50,7 +50,7 @@ def setup_logger(
     """
 
     # Create logger with module name
-    logger = logging.getLogger(f"bot.{name}")
+    logger = logging.getLogger(name)
     logger.setLevel(level)
 
     # Avoid handler duplication

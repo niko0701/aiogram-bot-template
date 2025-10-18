@@ -3,7 +3,7 @@ import logging
 from src.config import bot, dp
 from src.database import init_database
 from src.admin.router import router as admin
-from src.utils.logger import setup_root_logger, setup_logger
+from src.utils import setup_root_logger, setup_logger
 
 # Create main logger
 main_logger = setup_logger("main")

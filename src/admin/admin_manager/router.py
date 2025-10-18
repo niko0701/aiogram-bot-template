@@ -4,9 +4,8 @@ from aiogram.filters import Command, CommandObject
 from aiogram.types import Message
 
 from src.admin.filters import AdminFilter
-from .text import Text
+from .utils import TEXT, logger
 from src.admin.models import Admin
-from src.admin import logger
 
 
 router = Router(name="Admin Manager")
@@ -22,7 +21,7 @@ async def add_admin(message: Message, command: CommandObject):
     tg_id = command.args
     admin: Admin | None = await Admin.filter(tg_id=tg_id).first()
     if admin:
-        await message.answer(text=Text.ADMIN_ALREADY_EXISTS)
+        await message.answer(text=TEXT["ADMIN_ALREADY_EXISTS"])
         return
     admin = Admin(tg_id=tg_id)
     await admin.save()
@@ -38,7 +37,7 @@ async def admin_list(message: Message):
     logger.info(f"Admin list requested by {message.from_user.id}")
     admins = await Admin.all()
     if len(admins) == 0:
-        await message.answer(text=Text.ADMIN_LIST_EMPTY)
+        await message.answer(text=TEXT["ADMIN_LIST_EMPTY"])
         return
     text = "List of added admins:\n"
     for admin in admins:
@@ -56,8 +55,8 @@ async def remove_admin(message: Message, command: CommandObject):
     tg_id = command.args
     admin: Admin | None = await Admin.filter(tg_id=tg_id).first()
     if not admin:
-        await message.answer(text=Text.ADMIN_NOT_EXISTS)
+        await message.answer(text=TEXT["ADMIN_NOT_EXISTS"])
         return
     await admin.delete()
     logger.info(f"Admin removed: {tg_id}")
-    await message.answer(text=Text.ADMIN_REMOVED)
+    await message.answer(text=TEXT["ADMIN_REMOVED"])
